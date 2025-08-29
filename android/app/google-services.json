@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "762917497944",
+    "project_id": "book-spark-30e6d",
+    "storage_bucket": "book-spark-30e6d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762917497944:android:e268be1d76820199b46e2d",
+        "android_client_info": {
+          "package_name": "com.example.book_spark"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_gJyqJsctNQ4j0kwalLyj93Q84IMxJEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

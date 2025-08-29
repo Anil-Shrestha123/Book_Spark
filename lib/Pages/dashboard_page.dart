@@ -276,7 +276,7 @@ class DashboardPage extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.grey.shade200,
+                color: Colors.orangeAccent,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: Column(

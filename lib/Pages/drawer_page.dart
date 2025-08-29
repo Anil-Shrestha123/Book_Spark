@@ -1,7 +1,11 @@
+import 'package:book_spark/Pages/auth/screen/log_in_page.dart';
+import 'package:book_spark/Pages/auth/services/auth_service.dart';
 import 'package:book_spark/pages/about_page.dart';
 import 'package:book_spark/pages/dashboard_page.dart';
 import 'package:book_spark/pages/silver_dashboard.dart';
 import 'package:flutter/material.dart';
+
+AuthMethod authMethod = AuthMethod();
 
 class DrawerPage extends StatelessWidget {
   const DrawerPage({super.key});
@@ -47,6 +51,7 @@ class DrawerPage extends StatelessWidget {
           Column(
             children: [
               ListTile(
+                leading: Icon(Icons.home),
                 title: Text('Home Page'),
                 onTap: () {
                   Navigator.push(
@@ -61,6 +66,7 @@ class DrawerPage extends StatelessWidget {
               ),
               Divider(),
               ListTile(
+                leading: Icon(Icons.info),
                 title: Text('About'),
                 onTap: () {
                   Navigator.push(
@@ -75,6 +81,7 @@ class DrawerPage extends StatelessWidget {
               ),
               Divider(),
               ListTile(
+                leading: Icon(Icons.dashboard),
                 title: Text('Silver Dashboard'),
                 onTap: () {
                   Navigator.push(
@@ -87,7 +94,25 @@ class DrawerPage extends StatelessWidget {
                   );
                 },
               ),
-              Divider()
+              Divider(),
+              //log out
+              // ListTile(
+              //   leading: Icon(Icons.dashboard),
+              //   title: Text('Silver Dashboard'),
+              //   onTap: () {
+              //     authMethod.signOutUser();
+              //   },
+              // ),
+              ElevatedButton(onPressed: () {
+                authMethod.signOut();
+                Navigator.pop(context);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginPage(),
+                  ),
+                );
+              }, child: Text("Log out"))
             ],
           ),
         ],

@@ -1,3 +1,4 @@
+import 'package:book_spark/Pages/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart'; // For the borrowing activity chart
 
@@ -7,12 +8,14 @@ class AdminDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(child: DrawerPage()),
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          onPressed: () {},
-        ),
+        // leading: IconButton(
+        //   icon: const Icon(Icons.menu),
+        //   onPressed: () {},
+        // ),
         title: const Text("Admin Pannel", style: TextStyle(fontWeight: FontWeight.bold)),
+        centerTitle: true,
         actions: const [
           Icon(Icons.notifications_none),
           SizedBox(width: 16),
@@ -32,13 +35,13 @@ class AdminDashboard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.grey.shade300,
+                color: Colors.blue,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text("DashBoard Summary", style: TextStyle(fontWeight: FontWeight.bold)),
+                  const Text("DashBoard Summary", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
                   const SizedBox(height: 12),
                   GridView.count(
                     shrinkWrap: true,
@@ -62,9 +65,9 @@ class AdminDashboard extends StatelessWidget {
 
             // Borrowing Activity Chart
             const Text("Borrowing Activity", style: TextStyle(fontWeight: FontWeight.bold)),
-            const SizedBox(height: 12),
+            const SizedBox(height: 20),
             SizedBox(
-              height: 200,
+              height: 300, // Increased height for better spacing
               child: BarChart(
                 BarChartData(
                   borderData: FlBorderData(show: false),
@@ -75,19 +78,39 @@ class AdminDashboard extends StatelessWidget {
                         showTitles: true,
                         getTitlesWidget: (value, _) {
                           const months = ["Jan", "Feb", "Mar", "Apr", "May"];
-                          return Text(months[value.toInt() % months.length]);
+                          return Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Transform.rotate(
+                              angle: -0.5, // Rotate label for better fit
+                              child: Text(
+                                months[value.toInt() % months.length],
+                                style: const TextStyle(fontSize: 12),
+                              ),
+                            ),
+                          );
                         },
+                        reservedSize: 36, // Add space for rotated labels
                       ),
                     ),
                     leftTitles: AxisTitles(
-                      sideTitles: SideTitles(showTitles: true),
+                      sideTitles: SideTitles(
+                        showTitles: true,
+                        interval: 50, // Set interval to avoid overlap
+                        reservedSize: 40,
+                        getTitlesWidget: (value, _) {
+                          return Text(
+                            value.toInt().toString(),
+                            style: const TextStyle(fontSize: 12),
+                          );
+                        },
+                      ),
                     ),
                     rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
                     topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
                   ),
                   barGroups: [
                     _barGroup(0, 210),
-                    _barGroup(1, 280),
+                    _barGroup(1, 300),
                     _barGroup(2, 150),
                     _barGroup(3, 70),
                     _barGroup(4, 150),
@@ -102,13 +125,13 @@ class AdminDashboard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.grey.shade300,
+                color: Colors.blue,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text("Quick Management", style: TextStyle(fontWeight: FontWeight.bold)),
+                  const Text("Quick Management", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
                   const SizedBox(height: 12),
                   GridView.count(
                     shrinkWrap: true,
@@ -145,7 +168,7 @@ class AdminDashboard extends StatelessWidget {
     return BarChartGroupData(
       x: x,
       barRods: [
-        BarChartRodData(toY: y, color: Colors.grey, width: 20, borderRadius: BorderRadius.circular(4)),
+        BarChartRodData(toY: y, color: Colors.blue, width: 20, borderRadius: BorderRadius.circular(4)),
       ],
     );
   }
