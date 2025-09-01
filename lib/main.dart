@@ -64,10 +64,11 @@
 
 
 
+import 'package:book_spark/Pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'Pages/auth/services/auth_wrapper.dart';
+//import 'Pages/auth/services/auth_wrapper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -82,7 +83,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const AuthWrapper(), // ✅ handles login persistence
+      //home: const AuthWrapper(), // ✅ handles login persistence
+      home: const SplashScreen(),
     );
   }
 }

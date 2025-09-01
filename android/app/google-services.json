@@ -12,7 +12,20 @@
           "package_name": "com.example.book_spark"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "762917497944-u38p8rc65c42foqtt3bvbel0afc919u1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.book_spark",
+            "certificate_hash": "7e7d953779c5d852c5d566013ce7d084c7327b9d"
+          }
+        },
+        {
+          "client_id": "762917497944-me4gvl4o8rv6a7dkctkfhb67l6s4sqns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA_gJyqJsctNQ4j0kwalLyj93Q84IMxJEE"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762917497944-me4gvl4o8rv6a7dkctkfhb67l6s4sqns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
